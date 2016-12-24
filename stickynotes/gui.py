@@ -15,12 +15,13 @@
 # You should have received a copy of the GNU General Public License along with
 # indicator-stickynotes.  If not, see <http://www.gnu.org/licenses/>.
 
-from string import Template
-from gi.repository import Gtk, Gdk, Gio, GObject, GtkSource, Pango
-from locale import gettext as _
-import os.path
 import colorsys
+import os.path
 import uuid
+from gi.repository import Gtk, Gdk, GObject, GtkSource, Pango
+from locale import gettext as _
+from string import Template
+
 
 def load_global_css():
     """Adds a provider for the global CSS"""
@@ -101,7 +102,7 @@ class StickyNote:
         self.winMain.move(*self.note.properties.get("position", (10,10)))
         self.winMain.resize(*self.note.properties.get("size", (200,150)))
         # Show the window
-        self.winMain.set_skip_pager_hint(True)
+        #self.winMain.set_skip_pager_hint(True)
         self.winMain.show_all()
         # Mouse over
         self.eResizeR.get_window().set_cursor(Gdk.Cursor.new_for_display(
